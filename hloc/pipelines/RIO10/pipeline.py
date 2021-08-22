@@ -9,7 +9,7 @@ outputs = Path('outputs/sfm/')
 sfm_pairs = outputs / 'pairs-exhaustive.txt'  # exhaustive matching
 sfm_dir = outputs / 'sfm_superpoint+superglue'
 
-feature_conf = extract_features.confs['superpoint_aachen']
+feature_conf = extract_features.confs['superpoint_inloc']
 matcher_conf = match_features.confs['superglue']
 
 feature_path = extract_features.main(feature_conf, images, outputs)
