@@ -24,13 +24,13 @@ ref_sfm = output_dir / 'sfm_superpoint+superglue'
 
 num_ref_pairs = 20
 ref_pairs = output_dir / f'pairs-db-dist{num_ref_pairs}.txt'
-
+print("Ready to extract and match")
 fconf = extract_features.confs['superpoint_max']
 mconf = match_features.confs['superglue']
-
+print("Extracted and matched")
 # Only reference images that have a pose are used in the pipeline.
 # To save time in feature extraction, we delete unsused images.
-delete_unused_images(ref_images, get_timestamps(ref_dir / 'poses.txt', 0))
+# delete_unused_images(ref_images, get_timestamps(ref_dir / 'poses.txt', 0))
 
 # Build an empty COLMAP model containing only camera and images
 # from the provided poses and intrinsics.
