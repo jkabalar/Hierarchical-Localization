@@ -2,8 +2,8 @@ from pathlib import Path
 
 from ... import extract_features, match_features, reconstruction
 
-dataset = Path('datasets/RIO/')
-images = dataset / 'mapping/sensors/records_data/seq03_01/'
+dataset = Path('datasets/RIO10')
+images = dataset / 'mapping/sensors/records_data/seq03_01'
 
 outputs = Path('outputs/sfm/')
 sfm_pairs = outputs / 'pairs-exhaustive.txt'  # exhaustive matching
