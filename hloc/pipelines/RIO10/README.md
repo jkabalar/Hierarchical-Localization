@@ -6,7 +6,7 @@
 Example for Scene03
 ```bash
 export dataset=datasets/rio10
-python3 download.py -o dataset --type=kapture --id 3
+python3 download.py -o $dataset --type=kapture --id 3
 tar -xvf $dataset/scene03/RIO10_scene03_mapping.tar.gz
 tar -xvf $dataset/scene03/RIO10_scene03_validation.tar.gz
 tar -xvf $dataset/scene03/RIO10_scene03_testing.tar.gz
