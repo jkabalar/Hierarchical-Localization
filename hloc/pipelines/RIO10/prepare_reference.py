@@ -13,7 +13,7 @@ parser.add_argument('--outputs', type=Path, default='outputs/RIO10',
                     help='Path to the output directory, default: %(default)s')
 args = parser.parse_args()
 
-ref_dir = args.dataset / 'scene03'
+ref_dir = args.dataset #/ 'scene03'
 assert ref_dir.exists(), f'{ref_dir} does not exist'
 ref_images = ref_dir / 'mapping/sensors/records_data/seq03_01'
 
