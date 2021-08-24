@@ -31,6 +31,6 @@ results_path = export_dir / 'RIO10SFM_hloc_superpoint+superglue_netvlad40.txt'  
 #    with open(out_path, 'w') as f:
 #        f.write('\n'.join(data))
 
-query_list = dataset / 'RIO10_queries_with_intrinsics.txt'
+query_list = dataset / 'retrieval.txt'
 localize_sfm.main(
     sfm_dir, query_list, sfm_pairs, feature_path, match_path, results_path)
