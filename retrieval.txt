@@ -1,0 +1,6 @@
+RIO10test/RIO10/scene03/validation/sensors/records_data/seq03_02/frame-000000.color.jpg PINHOLE 960 540 756.026 756.832 270.419 492.889
+RIO10test/RIO10/scene03/validation/sensors/records_data/seq03_02/frame-000001.color.jpg PINHOLE 960 540 756.026 756.832 270.419 492.889
+RIO10test/RIO10/scene03/validation/sensors/records_data/seq03_02/frame-0000023.color.jpg PINHOLE 960 540 756.026 756.832 270.419 492.889
+RIO10test/RIO10/scene03/validation/sensors/records_data/seq03_02/frame-0000123.color.jpg PINHOLE 960 540 756.026 756.832 270.419 492.889
+RIO10test/RIO10/scene03/validation/sensors/records_data/seq03_02/frame-0000090.color.jpg PINHOLE 960 540 756.026 756.832 270.419 492.889
+RIO10test/RIO10/scene03/validation/sensors/records_data/seq03_02/frame-0000011.color.jpg PINHOLE 960 540 756.026 756.832 270.419 492.889
