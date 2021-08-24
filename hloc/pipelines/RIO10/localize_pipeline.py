@@ -12,7 +12,7 @@ matcher_conf = match_features.confs['superglue']
 feature_path = Path(export_dir, feature_conf['output']+'.h5')
 features = feature_conf['output']
 match_path = Path(export_dir, f'{features}_{matcher_conf["output"]}_{sfm_pairs.stem}.h5')
-results_path = outputs / 'RIO10SFM_hloc_superpoint+superglue_netvlad40.txt'  # the result file
+results_path = export_dir / 'RIO10SFM_hloc_superpoint+superglue_netvlad40.txt'  # the result file
 
 #fx, fy, cx, cy = 756.026,756.832,270.419,492.889 # hardcoded for seq 03 01
 #width, height = 960, 540
@@ -31,6 +31,6 @@ results_path = outputs / 'RIO10SFM_hloc_superpoint+superglue_netvlad40.txt'  # t
 #    with open(out_path, 'w') as f:
 #        f.write('\n'.join(data))
 
-query_list = export_dir / 'RIO10_queries_with_intrinsics.txt'
+query_list = dataset / 'RIO10_queries_with_intrinsics.txt'
 localize_sfm.main(
     sfm_dir, query_list, sfm_pairs, feature_path, match_path, results_path)
