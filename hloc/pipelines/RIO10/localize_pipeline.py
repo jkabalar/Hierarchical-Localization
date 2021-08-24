@@ -1,7 +1,7 @@
 from pathlib import Path
 
 #from ...utils.read_write_model import Image, write_model, Camera
-from ... import localize_sfm
+from ... import localize_sfm, match_features, extract_features
 
 dataset = Path('datasets/RIO10')
 export_dir= Path('outputs/sfm/')
