@@ -37,7 +37,7 @@ match_path = Path(outputs, f'{features}_{matcher_conf["output"]}_{sfm_pairs.stem
 #global_descriptors = extract_features.main(retrieval_conf, images, outputs)
 #global_descriptors = extract_features.main(retrieval_conf, query_images, outputs)
 global_descriptors_path = Path(outputs, retrieval_conf['output']+'.h5')
-
+print(global_descriptors_path)
 pairs_from_retrieval.main(global_descriptors_path, loc_pairs, num_loc, query_list=query_list, db_model=sfm_dir)
 
 features = extract_features.main(
