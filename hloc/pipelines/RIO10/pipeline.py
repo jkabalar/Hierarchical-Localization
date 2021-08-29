@@ -35,12 +35,12 @@ match_path = Path(outputs, f'{features}_{matcher_conf["output"]}_{sfm_pairs.stem
 #reconstruction.main(sfm_dir, images, sfm_pairs, feature_path, match_path)
 
 #global_descriptors = extract_features.main(retrieval_conf, images, outputs)
-global_descriptors = extract_features.main(retrieval_conf, images, outputs)
-#global_descriptors_path = Path(outputs, retrieval_conf['output']+'.h5')
+#global_descriptors_path = extract_features.main(retrieval_conf, images, outputs)
+global_descriptors_path = Path(outputs, retrieval_conf['output']+'.h5')
 
 #global_descriptors_file = h5py.File(global_descriptors_path, 'r')
 #print(global_descriptors_file.keys())
-pairs_from_retrieval.main(global_descriptors, loc_pairs, num_loc, query_list=query_list, db_model=sfm_dir, db_descriptors=feature_path)
+pairs_from_retrieval.main(global_descriptors_path, loc_pairs, num_loc, query_list=query_list, db_model=sfm_dir)#, db_descriptors=feature_path)
 features = extract_features.main(
         feature_conf, query_images, outputs, as_half=True)
 loc_matches = match_features.main(
