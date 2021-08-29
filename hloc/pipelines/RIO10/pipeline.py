@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from ... import extract_features, match_features, reconstruction, pairs_from_retrieval
+from ... import localize_sfm, extract_features, match_features, reconstruction, pairs_from_retrieval
 
-
+import h5py
 
 #feature_path = Path(export_dir, feature_conf['output']+'.h5')
 #features = feature_conf['output']
@@ -36,15 +36,14 @@ match_path = Path(outputs, f'{features}_{matcher_conf["output"]}_{sfm_pairs.stem
 
 #global_descriptors = extract_features.main(retrieval_conf, images, outputs)
 #global_descriptors = extract_features.main(retrieval_conf, query_images, outputs)
-global_descriptors_path = Path(outputs, retrieval_conf['output']+'.h5')
-print("Path:")
-print(global_descriptors_path)
-pairs_from_retrieval.main(global_descriptors_path, loc_pairs, num_loc, query_list=query_list, db_model=sfm_dir)
-
-features = extract_features.main(
-        feature_conf, query_images, outputs, as_half=True)
-loc_matches = match_features.main(
-        matcher_conf, loc_pairs, feature_conf['output'], outputs)
-
+global_descriptors = Path(outputs, retrieval_conf['output']+'.h5')
+#global_descriptors_file = h5py.File(global_descriptors_path, 'r')
+#print(global_descriptors_file.keys())
+#pairs_from_retrieval.main(global_descriptors_path, loc_pairs, num_loc, query_list=query_list, db_model
+#features = extract_features.main(
+#        retrieval_conf, query_images, outputs, as_half=True)
+#loc_matches = match_features.main(
+#        matcher_conf, match_path, retrieval_conf['output'], outputs)
+print("localize")
 localize_sfm.main(
-    sfm_dir, query_list, sfm_pairs, features , loc_matches, results_path)
+        sfm_dir, query_list, sfm_pairs, feature_path, match_path, results_path)
