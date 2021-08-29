@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from ... import localize_sfm, extract_features, match_features, reconstruction, pairs_from_retrieval
+from . import generate_query_list
 
 import h5py
 
@@ -12,7 +13,8 @@ dataset = Path('RIO10')
 images = dataset / 'scene03/mapping/sensors/records_data/seq03_01'
 
 query_images = dataset / 'scene03/validation/sensors/records_data/seq03_02'
-query_list = dataset / 'retrieval.txt'
+query_list = dataset / 'retrieval_copy.txt'
+generate_query_list(query_images, query_list)
 
 outputs = Path('outputs/sfm/')
 results_path = outputs / 'RIO10SFM_hloc_superpoint+superglue_netvlad40.txt'  # the result file
