@@ -19,11 +19,11 @@ results_path = outputs / 'RIO10SFM_hloc_superpoint+superglue_netvlad40.txt'  # t
 
 sfm_pairs = outputs / 'pairs-exhaustive_try2.txt'  # exhaustive matching
 sfm_dir = outputs / 'sfm_superpoint+superglue'
-num_loc= 1
+num_loc= 5
 loc_pairs = outputs / f'pairs-query-netvlad{num_loc}.txt'
 
-feature_conf = extract_features.confs['superpoint_inloc']
-matcher_conf = match_features.confs['NN-superpoint']#['superglue']
+feature_conf = extract_features.confs['superpoint_max']
+matcher_conf = match_features.confs['superglue']
 retrieval_conf = extract_features.confs['netvlad']
 
 #feature_path = extract_features.main(feature_conf, images, outputs, as_half=True)
@@ -35,15 +35,16 @@ match_path = Path(outputs, f'{features}_{matcher_conf["output"]}_{sfm_pairs.stem
 #reconstruction.main(sfm_dir, images, sfm_pairs, feature_path, match_path)
 
 #global_descriptors = extract_features.main(retrieval_conf, images, outputs)
-#global_descriptors = extract_features.main(retrieval_conf, query_images, outputs)
+#global_descriptors = extract_features.main(retrieval_conf, images, outputs)
 global_descriptors = Path(outputs, retrieval_conf['output']+'.h5')
+
 #global_descriptors_file = h5py.File(global_descriptors_path, 'r')
 #print(global_descriptors_file.keys())
-#pairs_from_retrieval.main(global_descriptors_path, loc_pairs, num_loc, query_list=query_list, db_model
-#features = extract_features.main(
-#        retrieval_conf, query_images, outputs, as_half=True)
-#loc_matches = match_features.main(
-#        matcher_conf, match_path, retrieval_conf['output'], outputs)
+pairs_from_retrieval.main(global_descriptors_path, loc_pairs, num_loc, query_list=query_list, db_model=sfm_dir, db_descriptors=features)
+features = extract_features.main(
+        feature_conf, query_images, outputs, as_half=True)
+loc_matches = match_features.main(
+        matcher_conf, loc_pairs, feature_conf['output'], outputs)
 print("localize")
 localize_sfm.main(
-        sfm_dir, query_list, sfm_pairs, feature_path, match_path, results_path)
+        sfm_dir, query_list, loc_pairs, features, loc_matches, results_path)
