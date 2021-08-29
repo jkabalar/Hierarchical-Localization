@@ -26,8 +26,8 @@ feature_conf = extract_features.confs['superpoint_inloc']
 matcher_conf = match_features.confs['NN-superpoint']
 retrieval_conf = extract_features.confs['netvlad']
 
-feature_path = extract_features.main(feature_conf, images, outputs, as_half=True)
-#feature_path = Path(outputs, feature_conf['output']+'.h5')
+#feature_path = extract_features.main(feature_conf, images, outputs, as_half=True)
+feature_path = Path(outputs, feature_conf['output']+'.h5')
 #match_path = match_features.main(
 #    matcher_conf, sfm_pairs, feature_conf['output'], outputs, exhaustive=True)
 features = feature_conf['output']
@@ -40,7 +40,7 @@ global_descriptors_path = Path(outputs, retrieval_conf['output']+'.h5')
 
 #global_descriptors_file = h5py.File(global_descriptors_path, 'r')
 #print(global_descriptors_file.keys())
-pairs_from_retrieval.main(global_descriptors_path, loc_pairs, num_loc, query_list=query_list, db_model=sfm_dir, db_descriptors=feature_path)
+pairs_from_retrieval.main(global_descriptors_path, loc_pairs, num_loc, query_list=query_list, db_model=sfm_dir)#, db_descriptors=feature_path)
 features = extract_features.main(
         feature_conf, query_images, outputs, as_half=True)
 loc_matches = match_features.main(
