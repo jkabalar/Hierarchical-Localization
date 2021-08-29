@@ -33,6 +33,7 @@ We also provide a Docker image that includes COLMAP and other dependencies:
 docker build -t hloc:latest .
 docker run -it --rm -p 8888:8888 hloc:latest  # for GPU support, add `--runtime=nvidia`
 jupyter notebook --ip 0.0.0.0 --port 8888 --no-browser --allow-root
+pip install git+https://github.com/mihaidusmanu/pycolmap@fe5b30345d5de31f9376675c68f19348149426b0
 ```
 
 ## General pipeline
