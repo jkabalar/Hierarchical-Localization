@@ -22,7 +22,7 @@ sfm_dir = outputs / 'sfm_superpoint+superglue'
 num_loc= 5
 loc_pairs = outputs / f'pairs-query-netvlad{num_loc}.txt'
 
-feature_conf = extract_features.confs['superpoint']
+feature_conf = extract_features.confs['superpoint_inloc']
 matcher_conf = match_features.confs['superglue']
 retrieval_conf = extract_features.confs['netvlad']
 
