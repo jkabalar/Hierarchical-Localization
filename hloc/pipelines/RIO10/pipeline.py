@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from ... import localize_sfm, extract_features, match_features, reconstruction, pairs_from_retrieval
-from . import generate_query_list
+from .utils import generate_query_list
 
 import h5py
 
