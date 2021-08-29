@@ -8,10 +8,10 @@ from ... import extract_features, match_features, reconstruction, pairs_from_ret
 #features = feature_conf['output']
 #match_path = Path(export_dir, f'{features}_{matcher_conf["output"]}_{sfm_pairs.stem}.h5')
 
-dataset = Path('datasets/RIO10')
-images = dataset / 'mapping/sensors/records_data/seq03_01'
+dataset = Path('RIO10')
+images = dataset / 'scene03/mapping/sensors/records_data/seq03_01'
 
-query_images = dataset / 'validation/sensors/records_data/seq03_02'
+query_images = dataset / 'scene03/validation/sensors/records_data/seq03_02'
 query_list = dataset / 'retrieval.txt'
 
 outputs = Path('outputs/sfm/')
