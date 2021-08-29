@@ -40,7 +40,7 @@ global_descriptors = Path(outputs, retrieval_conf['output']+'.h5')
 
 #global_descriptors_file = h5py.File(global_descriptors_path, 'r')
 #print(global_descriptors_file.keys())
-pairs_from_retrieval.main(global_descriptors, loc_pairs, num_loc, query_list=query_list, db_model=sfm_dir, db_descriptors=features)
+pairs_from_retrieval.main(global_descriptors, loc_pairs, num_loc, query_list=query_list, db_model=sfm_dir, db_descriptors=feature_path)
 features = extract_features.main(
         feature_conf, query_images, outputs, as_half=True)
 loc_matches = match_features.main(
