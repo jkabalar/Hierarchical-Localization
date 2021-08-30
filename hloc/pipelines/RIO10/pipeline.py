@@ -10,9 +10,9 @@ import h5py
 #match_path = Path(export_dir, f'{features}_{matcher_conf["output"]}_{sfm_pairs.stem}.h5')
 
 dataset = Path('RIO10')
-images = dataset / 'scene03/mapping/sensors/records_data/seq03_01'
+images = dataset / 'scene04/mapping/sensors/records_data/seq04_01'
 
-query_images = dataset / 'scene03/validation/sensors/records_data/seq03_02'
+query_images = dataset / 'scene04/validation/sensors/records_data/seq04_02'
 query_list = dataset / 'retrieval_copy.txt'
 generate_query_list(query_images, query_list)
 
