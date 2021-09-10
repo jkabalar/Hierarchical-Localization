@@ -21,6 +21,6 @@ def generate_query_list(dataset_dir, path):
         name = str(dataset_dir)+ "frame-"+frame+".color.jpg"
         intrinsics = [name, [cam0.model, cam0.width, cam0.height] + cam0.params]
         intrinsics = [str(p) for p in intrinsics]
-        data.append(' '.join(map(str, p)))
+        data.append(' '.join(map(str, intrinsics)))
     with open(path, 'w') as f:
            f.write('\n'.join(data))
