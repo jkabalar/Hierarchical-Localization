@@ -22,19 +22,19 @@ results_path = outputs / 'RIO10SFM_hloc_superpoint+superglue_netvlad40.txt'  # t
 sfm_pairs = outputs / 'pairs-exhaustive_try2.txt'  # exhaustive matching
 sfm_dir = outputs / 'sfm_superpoint+superglue'
 num_loc= 5
-loc_pairs = outputs / f'pairs-query-netvlad{num_loc}.txt'
+loc_pairs = outputs / 'pairs_localization_20.txt'
 
 feature_conf = extract_features.confs['superpoint_inloc']
-matcher_conf = match_features.confs['NN-superpoint']
+matcher_conf = match_features.confs['superglue']
 retrieval_conf = extract_features.confs['netvlad']
 
-feature_path = extract_features.main(feature_conf, images, outputs, as_half=True)
-#feature_path = Path(outputs, feature_conf['output']+'.h5')
-match_path = match_features.main(
+#feature_path = extract_features.main(feature_conf, images, outputs, as_half=True)
+feature_path = Path(outputs, feature_conf['output']+'.h5')
+#match_path = match_features.main(
 #    matcher_conf, sfm_pairs, feature_conf['output'], outputs, exhaustive=True)
 #features = feature_conf['output']
-#match_path = Path(outputs, f'{features}_{matcher_conf["output"]}_{sfm_pairs.stem}.h5')
-reconstruction.main(sfm_dir, images, sfm_pairs, feature_path, match_path)
+match_path = Path(outputs, f'{features}_{matcher_conf["output"]}_{sfm_pairs.stem}.h5')
+#reconstruction.main(sfm_dir, images, sfm_pairs, feature_path, match_path)
 
 #global_descriptors = extract_features.main(retrieval_conf, images, outputs)
 global_descriptors_path = extract_features.main(retrieval_conf, images, outputs)
@@ -42,7 +42,9 @@ global_descriptors_path = extract_features.main(retrieval_conf, images, outputs)
 
 #global_descriptors_file = h5py.File(global_descriptors_path, 'r')
 #print(global_descriptors_file.keys())
-pairs_from_retrieval.main(global_descriptors_path, loc_pairs, num_loc,  db_model=sfm_dir)#, query_list=query_list,db_descriptors=feature_path)
+# we use pairs from retrieval from kapture
+
+#pairs_from_retrieval.main(global_descriptors_path, loc_pairs, num_loc,  db_model=sfm_dir)#, query_list=query_list,db_descriptors=feature_path)
 features = extract_features.main(
         feature_conf, query_images, outputs, as_half=True)
 loc_matches = match_features.main(
