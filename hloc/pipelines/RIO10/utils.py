@@ -18,8 +18,8 @@ def generate_query_list(dataset_dir, path):
     data = []
     for frame_id in range(1000):
         frame= str(frame_id).zfill(6)
-        name = str(dataset_dir)+ "frame-"+frame+".color.jpg"
-        intrinsics = [name, [cam0.model, cam0.width, cam0.height] + cam0.params]
+        name = str(dataset_dir)+ "/frame-"+frame+".color.jpg"
+        intrinsics = [name, cam0.model, cam0.width, cam0.height, cam0.params]
         intrinsics = [str(p) for p in intrinsics]
         data.append(' '.join(map(str, intrinsics)))
     with open(path, 'w') as f:
