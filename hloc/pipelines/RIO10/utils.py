@@ -17,8 +17,8 @@ def generate_query_list(dataset_dir, path):
     #data = map(lambda ts: ' '.join([f'frame/{ts}.png']+intrinsics), timestamps)
     data = []
     for frame_id in range(1000):
-        frame_id.zfill(6)
-        name = dataset_dir+ "frame-"+ str(frame_id)+".color.jpg"
+        frame= str(frame_id).zfill(6)
+        name = dataset_dir+ "frame-"+frame+".color.jpg"
         intrinsics = [name, [cam0.model, cam0.width, cam0.height] + cam0.params]
         intrinsics = [str(p) for p in intrinsics]
         data.append(' '.join(map(str, p)))
