@@ -9,7 +9,7 @@ import h5py
 #features = feature_conf['output']
 #match_path = Path(export_dir, f'{features}_{matcher_conf["output"]}_{sfm_pairs.stem}.h5')
 
-dataset = Path('RIO10')
+dataset = Path('RIO')
 images = dataset / 'seq03/seq03_01'
 
 query_images = dataset / 'seq03/seq03_02'
