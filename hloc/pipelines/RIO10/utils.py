@@ -10,11 +10,7 @@ def generate_query_list(dataset_dir, path):
     params = [float(i) for i in [fx, fy, cx, cy]]
     cam0 = Camera(id=0, model=model_name, width=int(width), height=int(height), params=params)
     #intrinsics = [cam0.model, cam0.width, cam0.height] + cam0.params
-    #intrinsics = [str(p) for p in intrinsics]
-
-    queries = dataset / f'{slice_}/test-images-{slice_}.txt'
-    with open(queries, 'r') as f:
-        queries = [q.rstrip('\n') for q in f.readlines()]
+    #intrinsics = [str(p) for p in intrinsics
     #RIO10/scene03/mapping/sensors/records_data/seq03_01
     #dataset_dir = "RIO10/scene03/validation/sensors/records_data/seq03_02/"
     #frame-006270.color.jpg
