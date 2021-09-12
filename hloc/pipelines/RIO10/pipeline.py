@@ -28,8 +28,8 @@ feature_conf = extract_features.confs['superpoint_inloc']
 matcher_conf = match_features.confs['superglue']
 retrieval_conf = extract_features.confs['netvlad']
 
-feature_path = extract_features.main(feature_conf, images, outputs, as_half=True)
-#feature_path = Path(outputs, feature_conf['output']+'.h5')
+#feature_path = extract_features.main(feature_conf, images, outputs, as_half=True)
+feature_path = Path(outputs, feature_conf['output']+'.h5')
 match_path = match_features.main(
     matcher_conf, sfm_pairs, feature_conf['output'], outputs, exhaustive=True)
 #features = feature_conf['output']
