@@ -7,7 +7,7 @@ def generate_query_list(dataset_dir, path):
     fx, fy, cx, cy = 756.026,756.832,270.419,492.889 # hardcoded for seq 03 01
     width, height = 960, 540
     model_name = 'PINHOLE'
-    params = [float(i) for i in [fx, fy, cx, cy]]
+    params = float(i) for i in [fx, fy, cx, cy]
     cam0 = Camera(id=0, model=model_name, width=int(width), height=int(height), params=params)
     #intrinsics = [cam0.model, cam0.width, cam0.height] + cam0.params
     #intrinsics = [str(p) for p in intrinsics
