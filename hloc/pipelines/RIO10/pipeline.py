@@ -30,10 +30,10 @@ retrieval_conf = extract_features.confs['netvlad']
 
 #feature_path = extract_features.main(feature_conf, images, outputs, as_half=True)
 feature_path = Path(outputs, feature_conf['output']+'.h5')
-match_path = match_features.main(
-    matcher_conf, sfm_pairs, feature_conf['output'], outputs, exhaustive=True)
+#match_path = match_features.main(
+#    matcher_conf, sfm_pairs, feature_conf['output'], outputs, exhaustive=True)
 #features = feature_conf['output']
-#match_path = Path(outputs, f'{features}_{matcher_conf["output"]}_{sfm_pairs.stem}.h5')
+match_path = Path(outputs, f'{features}_{matcher_conf["output"]}_{sfm_pairs.stem}.h5')
 reconstruction.main(sfm_dir, images, sfm_pairs, feature_path, match_path)
 
 global_descriptors = extract_features.main(retrieval_conf, images, outputs)
